@@ -1,0 +1,322 @@
+{
+	"info": {
+		"_postman_id": "395e815f-3f1f-4869-acbc-9a58ed4cfd41",
+		"name": "Bank collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Basic authentication andreizb",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "client-pwd",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ing-client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/oauth/token?grant_type=password&username=andreizb&password=1234&scope=webclient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "password"
+						},
+						{
+							"key": "username",
+							"value": "andreizb"
+						},
+						{
+							"key": "password",
+							"value": "1234"
+						},
+						{
+							"key": "scope",
+							"value": "webclient"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Basic authentication geohrl",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "client-pwd",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ing-client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/oauth/token?grant_type=password&username=geohrl&password=1234&scope=webclient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "password"
+						},
+						{
+							"key": "username",
+							"value": "geohrl"
+						},
+						{
+							"key": "password",
+							"value": "1234"
+						},
+						{
+							"key": "scope",
+							"value": "webclient"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get profile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create transaction by username",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJVU0VSX0lEIjowLCJleHAiOjE2MDg1NTAwNjUsInVzZXJfbmFtZSI6ImFuZHJlaXpiIiwianRpIjoiYjU0ZTJiNmEtNDViZS00ZjcwLTk1OWEtNzIxMmFjNzE3NGIzIiwiY2xpZW50X2lkIjoiaW5nLWNsaWVudCIsInNjb3BlIjpbIndlYmNsaWVudCJdfQ.L5bJAYT4keSSY9Qogh--R6qivE--mD6guSbUFK8G9_e_TquhNMFIweiRjQOhDgwP8B4oOlNlrrxfGh3AMJB0Ggi2XxpfdeoNG4yW7BZG1p43uUaPpgnm7iBE2J_PCw3v1DRV7gyfq-Cje-hJ5DYrCkYWROn1CNR2R94KC7-vqVOoEypmjGWQHK83hYcHhjSevAJMGvdrimSOZwivqleNxwl0xd-8X77o28rsImEY3vYFydT8mHASmt0TUewzHOnyQpDkBPCBY1btXRz10VbUYTqHG9gEdWZE_4jRVUXf8-FTsuvbIagv9IDFmbKOg1d07O9xCnqSo38WVrMU0rei8g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"geohrl\",\r\n    \"amount\": 30,\r\n    \"description\": \"george hrl\",\r\n    \"status\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/transaction/create/username",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction",
+						"create",
+						"username"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create transaction by IBAN",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJVU0VSX0lEIjowLCJleHAiOjE2MDg1NTAwNjUsInVzZXJfbmFtZSI6ImFuZHJlaXpiIiwianRpIjoiYjU0ZTJiNmEtNDViZS00ZjcwLTk1OWEtNzIxMmFjNzE3NGIzIiwiY2xpZW50X2lkIjoiaW5nLWNsaWVudCIsInNjb3BlIjpbIndlYmNsaWVudCJdfQ.L5bJAYT4keSSY9Qogh--R6qivE--mD6guSbUFK8G9_e_TquhNMFIweiRjQOhDgwP8B4oOlNlrrxfGh3AMJB0Ggi2XxpfdeoNG4yW7BZG1p43uUaPpgnm7iBE2J_PCw3v1DRV7gyfq-Cje-hJ5DYrCkYWROn1CNR2R94KC7-vqVOoEypmjGWQHK83hYcHhjSevAJMGvdrimSOZwivqleNxwl0xd-8X77o28rsImEY3vYFydT8mHASmt0TUewzHOnyQpDkBPCBY1btXRz10VbUYTqHG9gEdWZE_4jRVUXf8-FTsuvbIagv9IDFmbKOg1d07O9xCnqSo38WVrMU0rei8g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"geohrl\",\r\n    \"amount\": 30,\r\n    \"description\": \"george hrl\",\r\n    \"status\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/transaction/create/iban",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction",
+						"create",
+						"iban"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accept transaction (look for ID)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/transaction/update/0?status=ACCEPTED",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction",
+						"update",
+						"0"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "ACCEPTED"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reject transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/transaction/update/0?status=REJECTED",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction",
+						"update",
+						"0"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "REJECTED"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all transactions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJVU0VSX0lEIjowLCJleHAiOjE2MDg2ODQ0MzksInVzZXJfbmFtZSI6ImFuZHJlaXpiIiwianRpIjoiMTk2MjM2OWMtMDE5MS00YzliLTlhZjctYmY5NWI4Mzk2NGU0IiwiY2xpZW50X2lkIjoiaW5nLWNsaWVudCIsInNjb3BlIjpbIndlYmNsaWVudCJdfQ.anylguzvn-h0KuTwJl9XoAufjrZcwveEYyrouheozqNnedFdgqNyZwWOb3UwnLsD7AVwLFIizQ9W043WKyg1Mw5L7iF_sh8o62HIMPt1xYDg8crMvohpb-nARAQmKUfy5na6lo9wOAi8bPDiULhkITrU_V2i8vMUShdQk0i5h-rkAee7pn-kXxjjfUOpUMfIIlR5Wr0JK49bN3fkezUyWiVSLWBE9w_dcmOaIAaGKK-e83m0JxFlBqqfIjTtYmJsld0qQCozUyuGDubO56lFDfmdvs9ugjiF0OXLnjTwilXQ2CfQi0Cw9vHWc4qbx5uKjtcR1ycVVc_JZIX6xDcaaA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/transaction/get/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction",
+						"get",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a number of transactions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJVU0VSX0lEIjowLCJleHAiOjE2MDg2ODQ0MzksInVzZXJfbmFtZSI6ImFuZHJlaXpiIiwianRpIjoiMTk2MjM2OWMtMDE5MS00YzliLTlhZjctYmY5NWI4Mzk2NGU0IiwiY2xpZW50X2lkIjoiaW5nLWNsaWVudCIsInNjb3BlIjpbIndlYmNsaWVudCJdfQ.anylguzvn-h0KuTwJl9XoAufjrZcwveEYyrouheozqNnedFdgqNyZwWOb3UwnLsD7AVwLFIizQ9W043WKyg1Mw5L7iF_sh8o62HIMPt1xYDg8crMvohpb-nARAQmKUfy5na6lo9wOAi8bPDiULhkITrU_V2i8vMUShdQk0i5h-rkAee7pn-kXxjjfUOpUMfIIlR5Wr0JK49bN3fkezUyWiVSLWBE9w_dcmOaIAaGKK-e83m0JxFlBqqfIjTtYmJsld0qQCozUyuGDubO56lFDfmdvs9ugjiF0OXLnjTwilXQ2CfQi0Cw9vHWc4qbx5uKjtcR1ycVVc_JZIX6xDcaaA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/transaction/get/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction",
+						"get",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
